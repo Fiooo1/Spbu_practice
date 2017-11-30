@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm> 
+#include<algorithm>
 
 using namespace std;
 
@@ -13,7 +13,9 @@ struct node
 
 node* make(int l, int r, unsigned a[])
 {
-    node* t = new node;
+    node* t = new node();
+    if (l > r)
+        return NULL;
     t->x = a[(l+r)/2];
     t->right = make((l+r)/2 + 1, r, a);
     t->left = make(l, (l+r)/2 - 1, a);
@@ -38,7 +40,7 @@ int main()
     cin >> n;
     unsigned a[n], A, B, C, D;
     for(int i = 0; i < n; i++){
-        cin >> A >> B >> C >> D; 
+        cin >> A >> B >> C >> D;
         a[i] = A*(1<<24)+B*(1<<16)+C*(1<<8)+D;
     }
     sort(a, a + n);
@@ -47,9 +49,10 @@ int main()
     cin >> m;
     unsigned temp;
     for(int i = 0; i < m; i++){
-        cin >> A >> B >> C >> D; 
+        cin >> A >> B >> C >> D;
         temp = A*(1<<24)+B*(1<<16)+C*(1<<8)+D;
         cout << Search(root, temp);
     }
     return 0;
 }
+
