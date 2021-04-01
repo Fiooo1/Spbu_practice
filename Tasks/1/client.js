@@ -11,5 +11,5 @@ function wsSendEcho(value) {
 }
 
 function wsSendPing() {
-    myWs.send(JSON.stringify({action: 'PING'}));
+    myWs.send(JSON.stringify({action: '123'}));
 }
