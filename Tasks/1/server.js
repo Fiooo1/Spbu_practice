@@ -19,9 +19,9 @@ function onConnect(wsClient) {
                 case 'ECHO':
                     wsClient.send(jsonMessage.data);
                     break;
-                case 'PING':
+                case '123':
                     setTimeout(function() {
-                        wsClient.send('PONG');
+                        wsClient.send('456');
                     }, 2000);
                     break;
                 default:
