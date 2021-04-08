@@ -1,0 +1,66 @@
+Input:
+
+select * from buyers inner join products on buyers.ID=products.BUYER_ID;
+
+select buyers.NAME, products.PRODUCT 
+from buyers inner join products on buyers.ID=products.BUYER_ID;
+
+select buyers.NAME, products.PRODUCT 
+from buyers inner join products on buyers.ID=products.BUYER_ID
+where buyers.NAME like Alice;
+
+create view VW as select products.ID,PRODUCT,AVAILABLE from store join products on products.PRODUCT = store.PRODUCT
+
+
+Output:
+
++----+------+---------+---------+
+| ID | NAME | BUYER_ID| PRODUCT |
++----+------+---------+---------+
+| 1  | John | 1       | meat    |
++----+------+---------+---------+
+| 2  | Bob  | 2       | milk    |
++----+------+---------+---------+
+| 3  | Alice| 3       | bread   |
++----+------+---------+---------+
+| 4  | Leo  | 4       | potato  |
++----+------+---------+---------+
+| 5  | Brad | 5       | apple   |
++----+------+---------+---------+
+
+
++------+---------+
+| NAME | PRODUCT |
++------+---------+
+| John | meat    |
++------+---------+
+| Bob  | milk    |
++------+---------+
+| Alice| bread   |
++------+---------+
+| Leo  | potato  |
++------+---------+
+| Brad | apple   |
++------+---------+
+
+
++------+---------+
+| NAME | PRODUCT |
++------+---------+
+| Alice| bread   |
++------+---------+
+
+
++----+---------+-----------+
+| ID | PRODUCT | AVAILABLE |
++----+---------+-----------+
+| 1  | meat    | yes       |
++----+---------+-----------+
+| 2  | milk    | yes       |
++----+---------+-----------+
+| 3  | bread   | yes       |
++----+---------+-----------+
+| 4  | potato  | no        |
++----+---------+-----------+
+| 5  | apple   | yes       |
++----+---------+-----------+
